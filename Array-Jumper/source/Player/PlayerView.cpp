@@ -1,21 +1,29 @@
 #include "../../header/Player/PlayerView.h"
-
+#include "../../header/Global/Config.h"
+#include "../../header/Global/ServiceLocator.h"
+using namespace Global;
 namespace Player
 {
 
-	void PlayerView::calculatePlayerDimensions()
+	PlayerView::PlayerView()
 	{
-		player_height = 1000.0f;
-		player_width = 1000.0f;
-			
+		game_window = nullptr;
+		player_image = new ImageView();
 	}
 
+	void PlayerView::calculatePlayerDimensions()
+	{
+		player_height = 1000.f;
+		player_width = 1000.f;
+
+	}
 	void PlayerView::initializePlayerImage()
 	{
 		player_image->initialize(Config::character_texture_path,
-		           	player_width,
-			        player_height,
-			        sf::Vector2f(0, 0));
+			player_width,
+			player_height,
+			sf::Vector2f(0, 0));
+
 	}
 	void PlayerView::loadPlayer()
 	{
@@ -31,11 +39,6 @@ namespace Player
 	{
 		return sf::Vector2f(0, 0);
 	}
-	PlayerView::PlayerView()
-	{
-		game_window = nullptr;
-		player_image = new ImageView();
-	}
 	void PlayerView::updatePlayerPosition()
 	{
 		player_image->setPosition(calulcatePlayerPosition());
@@ -44,13 +47,12 @@ namespace Player
 	{
 		player_image->render();
 	}
-	
+
+
+
 	PlayerView::~PlayerView() {}
 
-	void PlayerView::initialize()
-	{
-		//Yet to Implement
-	}
+
 
 	void PlayerView::update()
 	{

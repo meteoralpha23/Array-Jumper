@@ -1,5 +1,6 @@
 #pragma once
 #include "../../header/UI/UIElement/ImageView.h"
+using namespace UI::UIElement;
 namespace Player
 {
 
