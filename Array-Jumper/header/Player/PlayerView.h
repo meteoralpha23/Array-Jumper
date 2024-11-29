@@ -1,26 +1,31 @@
+
 #pragma once
-#include "../../header/UI/UIElement/ImageView.h"
-using namespace UI::UIElement;
+#include "../../header/UI/UIElement/ImageView.h" 
+#include "../../header/Player/PlayerController.h"
+
 namespace Player
 {
 
 	class PlayerView
 	{
+
 	private:
-		sf::RenderWindow* game_window;
 		UI::UIElement::ImageView* player_image;
+		sf::RenderWindow* gameWindow;
+		PlayerController* player_controller;
+		float playerHeight;
+		float playerWidth;
 
-		float player_height;
-		float player_width;
+		void initializePlayerImage();
+		void drawPlayer();
+		void loadPlayer();
+		void  calculatePlayerDimensions();
+		void updatePlayerPosition();
+		
+		sf::Vector2f calculatePlayerPosition();
 
-		void initializePlayerImage(); //Initialize player_image 
-		void drawPlayer(); //Called every frame to render the sprite on the screen
-		void loadPlayer(); //Loads the information needed to render the player
-		void calculatePlayerDimensions(); //Calculate the size of image
-		void updatePlayerPosition(); //Updates the Player Sprite's position on each frame
-		sf::Vector2f calulcatePlayerPosition();
 	public:
-		PlayerView();
+		PlayerView(PlayerController* controller);
 		~PlayerView();
 
 		void initialize();
@@ -28,9 +33,9 @@ namespace Player
 		void render();
 
 
+
+
+
 	};
-
-
-
 
 }

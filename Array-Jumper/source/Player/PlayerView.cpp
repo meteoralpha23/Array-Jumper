@@ -1,66 +1,109 @@
 #include "../../header/Player/PlayerView.h"
 #include "../../header/Global/Config.h"
 #include "../../header/Global/ServiceLocator.h"
+#include "../../header/Player/PlayerModel.h"
+
+
+
 using namespace Global;
+
+enum class PlayerState;
 namespace Player
 {
 
-	PlayerView::PlayerView()
+
+
+	PlayerView::PlayerView(PlayerController* controller)
 	{
-		game_window = nullptr;
-		player_image = new ImageView();
+		player_controller = controller;
+		gameWindow = nullptr;
 	}
+
+	PlayerView::~PlayerView()
+
+	{
+
+	}
+
+
+
+
+
+	
+
+
 
 	void PlayerView::calculatePlayerDimensions()
 	{
-		player_height = 1000.f;
-		player_width = 1000.f;
+		playerWidth = 1000.0f;
+		playerHeight = 1000.0f;
+
 
 	}
+
+
+	
 	void PlayerView::initializePlayerImage()
 	{
+
 		player_image->initialize(Config::character_texture_path,
-			player_width,
-			player_height,
-			sf::Vector2f(0, 0));
+			                     playerWidth,
+			                     playerHeight,
+		                      	sf::Vector2f(0, 0));
 
 	}
+
 	void PlayerView::loadPlayer()
 	{
 		calculatePlayerDimensions();
 		initializePlayerImage();
+
+
+
 	}
+
 	void PlayerView::initialize()
 	{
-		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
 		loadPlayer();
+
 	}
-	sf::Vector2f PlayerView::calulcatePlayerPosition()
+
+	sf::Vector2f PlayerView::calculatePlayerPosition()
 	{
 		return sf::Vector2f(0, 0);
 	}
+
 	void PlayerView::updatePlayerPosition()
 	{
-		player_image->setPosition(calulcatePlayerPosition());
+		player_image->setPosition(calculatePlayerPosition());
+		
+
+	}
+	void PlayerView::update()
+	{
+		updatePlayerPosition();
+
 	}
 	void PlayerView::drawPlayer()
 	{
 		player_image->render();
+
+
 	}
 
-
-
-	PlayerView::~PlayerView() {}
-
-
-
-	void PlayerView::update()
-	{
-		//Yet to implement
-	}
 
 	void PlayerView::render()
 	{
-		//Yet to implement
+		switch (player_controller->getPlayerState())
+		{
+		case Player::PlayerState::ALIVE: // Fully qualify PlayerState with namespace
+			drawPlayer();
+			break;
+
+		}
 	}
+
+
+
 }
