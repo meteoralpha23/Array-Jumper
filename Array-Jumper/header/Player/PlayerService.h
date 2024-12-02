@@ -1,12 +1,11 @@
 #pragma once
+
 namespace Player
 {
 	class PlayerController;
-
-	class PlayerService {
-
+	class PlayerService
+	{
 	private:
-		
 		PlayerController* player_controller;
 
 		void destroy();
@@ -18,14 +17,5 @@ namespace Player
 		void initialize();
 		void update();
 		void render();
-
-		
-	
-
-
-
-
 	};
-
-
 }

@@ -3,19 +3,9 @@
 
 namespace Player
 {
-
-
 	PlayerService::PlayerService() { player_controller = new PlayerController(); }
 
-	void PlayerService::destroy()
-	{
-		delete (player_controller);
-	}
-	PlayerService::~PlayerService()
-	{
-		destroy();
-	}
-
+	PlayerService::~PlayerService() { destroy(); }
 
 	void PlayerService::initialize()
 	{
@@ -32,5 +22,5 @@ namespace Player
 		player_controller->render();
 	}
 
-
+	void PlayerService::destroy() { delete(player_controller); }
 }

@@ -1,34 +1,27 @@
 #pragma once
 
- namespace Player
+namespace Player
 {
-	 class PlayerModel;
-	 class PlayerView;
-	 enum class PlayerState;
-	 class PlayerController
-	 {
-	 private:
-		
+	class PlayerView;
+	class PlayerModel;
+	enum class PlayerState;
+	class PlayerController
+	{
+	private:
+		PlayerModel* player_model;
+		PlayerView* player_view;
 
-		 PlayerModel* player_model;
-		 PlayerView* player_view;
-		 void destory();
+		void destroy();
 
-	 public:
-		 PlayerController();
-		 ~PlayerController();
+	public:
+		PlayerController();
+		~PlayerController();
 
+		void initialize();
+		void update();
+		void render();
 
-		 void initialize();
-		 void update();
-		 void render();
-
-		 PlayerState getPlayerState();
-		 void setPlayerState(PlayerState newPlayerState);
-		
-
-
+		PlayerState getPlayerState();
+		void setPlayerState(PlayerState new_player_state);
 	};
-
 }
-

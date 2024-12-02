@@ -2,27 +2,15 @@
 #include "../../header/Player/PlayerView.h"
 #include "../../header/Player/PlayerModel.h"
 
-namespace Player {
-	
+namespace Player
+{
 	PlayerController::PlayerController()
 	{
 		player_model = new PlayerModel();
 		player_view = new PlayerView(this);
-
 	}
 
-
-
-	void PlayerController::destory()
-	{
-		delete (player_model);
-		delete (player_view);
-	} 
-
-	PlayerController::~PlayerController()
-	{
-		destory();
-	}
+	PlayerController::~PlayerController() { destroy(); }
 
 	void PlayerController::initialize()
 	{
@@ -45,17 +33,14 @@ namespace Player {
 		return player_model->getPlayerState();
 	}
 
-	void PlayerController::setPlayerState(PlayerState newPlayerState)
+	void PlayerController::setPlayerState(PlayerState new_player_state)
 	{
-		player_model->setPlayerState(newPlayerState);
+		player_model->setPlayerState(new_player_state);
 	}
 
-
-	
-
-
-
-
-
-
+	void PlayerController::destroy()
+	{
+		delete(player_model);
+		delete(player_view);
+	}
 }

@@ -1,28 +1,28 @@
-
 #pragma once
-#include "../../header/UI/UIElement/ImageView.h" 
-#include "../../header/Player/PlayerController.h"
+#include "../../header/Level/LevelModel.h"
+#include "../../header/UI/UIElement/ImageView.h"
+
 
 namespace Player
 {
-
+	class PlayerController;
 	class PlayerView
 	{
-
 	private:
-		UI::UIElement::ImageView* player_image;
-		sf::RenderWindow* gameWindow;
+		sf::RenderWindow* game_window;
 		PlayerController* player_controller;
-		float playerHeight;
-		float playerWidth;
+		UI::UIElement::ImageView* player_image;
+
+		float player_height;
+		float player_width;
+		
 
 		void initializePlayerImage();
 		void drawPlayer();
 		void loadPlayer();
-		void  calculatePlayerDimensions();
+		void calculatePlayerDimensions();
 		void updatePlayerPosition();
-		
-		sf::Vector2f calculatePlayerPosition();
+		sf::Vector2f calulcatePlayerPosition();
 
 	public:
 		PlayerView(PlayerController* controller);
@@ -32,10 +32,5 @@ namespace Player
 		void update();
 		void render();
 
-
-
-
-
 	};
-
 }
