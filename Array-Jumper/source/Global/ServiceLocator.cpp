@@ -20,8 +20,8 @@ namespace Global
 		sound_service = nullptr;
 		ui_service = nullptr;
 		level_service = nullptr;
-	
-		player_service = nullptr;
+	    player_service = nullptr;
+		
 		
 		createServices();
 	}
@@ -70,7 +70,7 @@ namespace Global
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			level_service->render();
-			player_service->render();
+			//player_service->render();
 		}
 	}
 
