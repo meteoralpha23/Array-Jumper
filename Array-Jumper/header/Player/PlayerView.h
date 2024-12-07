@@ -9,13 +9,14 @@ namespace Player
 	class PlayerView
 	{
 	private:
+		// TODO: Fix spacing. References grouped together + properties grouped together. 
 		sf::RenderWindow* game_window;
 		PlayerController* player_controller;
 		UI::UIElement::ImageView* player_image;
 
 		float player_height;
 		float player_width;
-		
+		Level::BoxDimensions current_box_dimensions;
 
 		void initializePlayerImage();
 		void drawPlayer();

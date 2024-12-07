@@ -12,6 +12,7 @@ namespace Player
 		PlayerView* player_view;
 
 		void destroy();
+		void resetPlayer();
 
 	public:
 		PlayerController();
@@ -23,5 +24,7 @@ namespace Player
 
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
+
+		int getCurrentPosition();
 	};
 }

@@ -2,6 +2,8 @@
 #include "../../header/Player/PlayerView.h"
 #include "../../header/Player/PlayerModel.h"
 
+
+
 namespace Player
 {
 	PlayerController::PlayerController()
@@ -16,6 +18,8 @@ namespace Player
 	{
 		player_model->initialize();
 		player_view->initialize();
+
+		resetPlayer();
 	}
 
 	void PlayerController::update()
@@ -38,9 +42,21 @@ namespace Player
 		player_model->setPlayerState(new_player_state);
 	}
 
+	int PlayerController::getCurrentPosition()
+	{
+		return player_model->getCurrentPosition();
+	}
+
+
 	void PlayerController::destroy()
 	{
 		delete(player_model);
 		delete(player_view);
+	}
+
+	void PlayerController::resetPlayer()
+	{
+		player_model->setCurrentPosition(0);
+		player_model->setPlayerState(PlayerState::ALIVE);
 	}
 }

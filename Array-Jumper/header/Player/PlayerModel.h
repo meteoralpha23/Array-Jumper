@@ -13,11 +13,8 @@ namespace Player
 	{
 	private:
 
-		
-
 		PlayerState player_state;
 		int current_position;
-		
 
 	public:
 
@@ -26,10 +23,7 @@ namespace Player
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
 
-		void resetPlayer();
-		void resetPosition();
 		int getCurrentPosition();
 		void setCurrentPosition(int new_position);
-		
 	};
 }

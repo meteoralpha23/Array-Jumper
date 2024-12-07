@@ -1,6 +1,7 @@
 #include "../../header/Player/PlayerService.h"
 #include "../../header/Player/PlayerController.h"
 
+
 namespace Player
 {
 	PlayerService::PlayerService() { player_controller = new PlayerController(); }
@@ -21,6 +22,7 @@ namespace Player
 	{
 		player_controller->render();
 	}
+
 
 	void PlayerService::destroy() { delete(player_controller); }
 }

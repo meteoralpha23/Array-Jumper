@@ -59,9 +59,9 @@ namespace Player
 
 	void PlayerView::calculatePlayerDimensions()
 	{
-		
-		player_height = 1000.0f;
-		player_width = 1000.0f;
+		current_box_dimensions = ServiceLocator::getInstance()->getLevelService()->getBoxDimensions();
+		player_height = current_box_dimensions.box_height;
+		player_width = current_box_dimensions.box_width;
 	}
 
 	void PlayerView::updatePlayerPosition()
@@ -71,8 +71,9 @@ namespace Player
 
 	sf::Vector2f PlayerView::calulcatePlayerPosition()
 	{
-		
-		return sf::Vector2f(0, 0);
+		float xPosition = current_box_dimensions.box_spacing + static_cast<float>(player_controller->getCurrentPosition()) * (current_box_dimensions.box_width + current_box_dimensions.box_spacing);
+		float yPosition = static_cast<float>(game_window->getSize().y) - current_box_dimensions.box_height - current_box_dimensions.bottom_offset - player_height;
+		return sf::Vector2f(xPosition, yPosition);
 	}
 
 

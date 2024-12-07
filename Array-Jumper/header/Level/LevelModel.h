@@ -14,6 +14,7 @@ namespace Level
 		float bottom_offset = 200.f;
 	};
 
+
 	class LevelModel
 	{
 	private:
