@@ -25,6 +25,8 @@ namespace Event
 		ButtonState D_button_state;
 		ButtonState Space_buttonPressed;
 
+
+
 		bool isGameWindowOpen();
 		bool gameWindowWasClosed();
 		bool hasQuitGame();
