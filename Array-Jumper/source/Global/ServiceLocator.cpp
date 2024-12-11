@@ -12,6 +12,7 @@ namespace Global
 	using namespace Main;
 	using namespace Player;
 	using namespace Level;
+	using namespace Gameplay;
 	
 	ServiceLocator::ServiceLocator()
 	{
@@ -21,7 +22,7 @@ namespace Global
 		ui_service = nullptr;
 		level_service = nullptr;
 	    player_service = nullptr;
-		
+		gameplay_service = nullptr;
 		
 		createServices();
 	}
@@ -38,6 +39,7 @@ namespace Global
 		
 		ui_service = new UIService();
 		level_service = new LevelService();
+		gameplay_service = new GameplayService();
 	}
 
 	void ServiceLocator::initialize()
@@ -49,6 +51,7 @@ namespace Global
 		player_service->initialize();
 		
 		ui_service->initialize();
+		gameplay_service->intialize();
 	}
 
 	void ServiceLocator::update()
@@ -60,6 +63,7 @@ namespace Global
 		{
 			level_service->update();
 			player_service->update();
+			gameplay_service->update();
 		}
 	}
 
@@ -73,6 +77,7 @@ namespace Global
 			
 			level_service->render();
 			player_service->render();
+			gameplay_service->render();
 		}
 	}
 
@@ -86,6 +91,7 @@ namespace Global
 		delete(level_service);
 		
 		delete(ui_service);
+		delete(gameplay_service);
 	}
 
 	ServiceLocator* ServiceLocator::getInstance()
@@ -102,7 +108,17 @@ namespace Global
 
 	UIService* ServiceLocator::getUIService() { return ui_service; }
 
+	Player::PlayerService* ServiceLocator::getPlayerService()
+	{
+		return player_service;
+	}
+
 	LevelService* ServiceLocator::getLevelService() { return level_service; }
+
+	Gameplay::GameplayService* ServiceLocator::getGameplayService()
+	{
+		return gameplay_service;
+	}
 
 	
 }

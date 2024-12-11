@@ -36,6 +36,7 @@ namespace Player
 		void move(MovementDirection direction);
 		bool  isPositionInBound(int targetPosition);
 		void jump(MovementDirection direction);
+		void takeDamage();
 		
 	};
 }
