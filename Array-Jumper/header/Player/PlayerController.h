@@ -18,7 +18,7 @@ namespace Player
 		Event::EventService* event_service;
 		void readInput();
 		void destroy();
-		void resetPlayer();
+		
 
 	public:
 		PlayerController();
@@ -37,6 +37,7 @@ namespace Player
 		bool  isPositionInBound(int targetPosition);
 		void jump(MovementDirection direction);
 		void takeDamage();
+		void resetPlayer();
 		
 	};
 }
