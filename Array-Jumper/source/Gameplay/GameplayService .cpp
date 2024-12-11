@@ -23,6 +23,10 @@ namespace Gameplay
 	{
 		gameplay_controller->render();
 	}
+	void GameplayService::onDeath()
+	{
+		gameplay_controller->onDeath();
+	}
 	void GameplayService::onPositionChanged(int position)
 	{
 		gameplay_controller->onPositionChanged(position);
