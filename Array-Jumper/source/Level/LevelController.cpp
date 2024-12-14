@@ -40,4 +40,22 @@ namespace Level
 		return level_model->getCurrentBoxValue(currentPosition);
 	}
 
+	bool LevelController::isLastLevel()
+	{
+		return false;
+	}
+
+	void LevelController::loadNextLevel()
+	{
+	}
+
+	int LevelController::getCurrentLevelNumber()
+	{
+		return 0;
+	}
+
+	void LevelController::reset()
+	{
+	}
+
 }
