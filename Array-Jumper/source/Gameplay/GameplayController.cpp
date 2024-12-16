@@ -37,6 +37,12 @@ namespace Gameplay
 		gameOver();
 	}
 
+	void GameplayController::gameWon()
+	{
+		GameService::setGameState(GameState::CREDITS);
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::GAME_WON);
+	}
+
 	void GameplayController::processObstacle()
 	{
 		ServiceLocator::getInstance()->getPlayerService()->takeDamage();
